@@ -206,6 +206,8 @@ export const mintNFT = async (
   // Force wait for max confirmations
   await connection.getParsedConfirmedTransaction(res.txid, 'confirmed');
   log.info('NFT created', res.txid);
+  log.info('NFT PK', mint.publicKey.toBase58());
+
   return metadataAccount;
 };
 

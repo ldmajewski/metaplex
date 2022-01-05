@@ -56,7 +56,7 @@ function estimateManifestSize(filenames: string[]) {
 
 export async function arweaveUpload(
   walletKeyPair,
-  anchorProgram,
+  connection,
   env,
   image,
   manifestBuffer, // TODO rename metadataBuffer
@@ -85,7 +85,7 @@ export async function arweaveUpload(
   ];
 
   const tx = await sendTransactionWithRetryWithKeypair(
-    anchorProgram.provider.connection,
+    connection,
     walletKeyPair,
     instructions,
     [],
